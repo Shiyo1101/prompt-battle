@@ -1,0 +1,16 @@
+# Ignore artifacts:
+build
+coverage
+
+package.json
+package-lock.json
+
+# Ignore all files in the .git directory
+.git
+.gitignore
+
+# Ignore all files in the .vscode directory
+.vscode
+
+# Ignore all files in the node_modules directory
+node_modules
