@@ -1,18 +1,19 @@
 {
   "name": "prompt-battle",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:frontend": "npm run -w frontend dev",
+    "dev:backend": "npm run -w backend dev",
     "lint": "run-s lint:*",
     "lint:frontend": "npm run -w frontend eslint /src",
     "lint:backend": "npm run -w backend eslint /src",
     "lint-fix": "prettier --write 'src/**/*' &&  eslint --fix src/"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Yoshiki Uchida",
   "license": "ISC",
-  "description": "",
   "workspaces": [
     "packages/frontend",
     "packages/backend"
