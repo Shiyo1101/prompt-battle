@@ -1,4 +1,4 @@
-FROM node:22.12.0-buildpack-deps:bullseye AS dev
+FROM node:22.12.0-bullseye AS dev
 
 WORKDIR /app
 
