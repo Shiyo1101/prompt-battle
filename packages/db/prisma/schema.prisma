@@ -7,6 +7,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// socket.ioの設定
+ model SocketAuthToken {
+  userId      String
+  token       String  @unique
+  expire      DateTime
+
+  @@unique([userId, token])
+}
+
+model BattleRoom {
+  id          String      @id @default(cuid())
+  theme       String
+  isInBattle  Boolean     @default(false)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  challengerId Int?
+  responderId  Int?
+  spectatorsId Int[]      @default([])
+  challenger  User?       @relation("challenger", fields: [challengerId], references: [id])
+  responder   User?       @relation("responder", fields: [responderId], references: [id])
+  spectators  User[]      @relation("spectators")
+}
+
 //Auth.jsの設定
 model Account {
   id                 Int     @id @default(autoincrement())
@@ -46,10 +69,11 @@ model User {
   email         String    @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
   accounts      Account[]
   sessions      Session[]
+  roomCreated       BattleRoom[] @relation("challenger")
+  roomEntered       BattleRoom[] @relation("responder")
+  spectatedRooms    BattleRoom[] @relation("spectators")
 
   @@map(name: "users")
 }
@@ -63,5 +87,5 @@ model VerificationToken {
   @@map("verificationtokens")
 }
 
-//自分の作りたいアプリのデータベース
+// Application用model
 //...
