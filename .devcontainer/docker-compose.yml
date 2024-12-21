@@ -17,7 +17,7 @@ services:
     image: postgres:15
     hostname: db
     env_file:
-      - ../packages/db/.env.dev
+      - ../.env
     networks:
       - app_network
     environment:
