@@ -1,0 +1,17 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prisma:gen": "prisma generate"
+  },
+  "author": "Yoshiki Uchida",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.0.1"
+  },
+  "devDependencies": {
+    "prisma": "^6.0.1"
+  }
+}

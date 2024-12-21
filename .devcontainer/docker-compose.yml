@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 services:
   app:
     build:
@@ -6,7 +6,26 @@ services:
       dockerfile: .devcontainer/Dockerfile
     ports:
       - 3000:3000
+      - 3001:3001
     volumes:
       - ..:/app
       - /var/run/docker.sock:/var/run/docker.sock
     tty: true
+  db:
+    image: postgres:15
+    hostname: db
+    env_file:
+      - ../packages/common/.env.dev
+    networks:
+      - app_network
+    environment:
+      - TZ=Asia/Tokyo
+      - POSTGRES_DB=$DB_NAME
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_PASSWORD=$DB_PASS
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d

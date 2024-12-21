@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ES2017",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": "./prisma",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+  },
+  "include": [
+    "prisma/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
