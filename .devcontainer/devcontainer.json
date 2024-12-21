@@ -3,7 +3,7 @@
   "dockerComposeFile": "./docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/app",
-  "postCreateCommand": "npm i",
+  "postCreateCommand": "npm i && npm run -w db init",
   "remoteUser": "node",
   "customizations": {
     "vscode": {
