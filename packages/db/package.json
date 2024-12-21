@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "init": "prisma generate && prisma db push",
     "prisma:studio": "prisma studio",
     "prisma:dev:gen": "NODE_ENV=development && prisma generate",
     "prisma:dev:migrate": "NODE_ENV=development && prisma migrate",
