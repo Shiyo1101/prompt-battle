@@ -23,7 +23,13 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: process.env.APP_URL || 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT'],
+    credentials: true,
+  },
+});
 
 app.get('/', (_req, res) => {
   res.status(200).send('connection success');

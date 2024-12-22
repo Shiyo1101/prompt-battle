@@ -1,3 +1,5 @@
+'use client';
+
 import login from '@/actions/login';
 import { useCurrentUser } from '@/hooks/use-curent-user';
 import {
@@ -10,8 +12,18 @@ import {
   InputLabel,
   Typography,
 } from '@mui/material';
+import { useEffect } from 'react';
+import { io } from 'socket.io-client';
 
 const BattleRoomCreate = () => {
+  useEffect(() => {
+    const socket = io('localhost:8080');
+
+    socket.on('connect', () => {
+      console.log('Connected to the server');
+    });
+  });
+
   const user = useCurrentUser;
   let Btn;
   if (user.email_verified) {
