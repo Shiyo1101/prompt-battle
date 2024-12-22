@@ -1,0 +1,39 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    ports:
+      - 3000:3000
+      - 3001:3001
+    volumes:
+      - ..:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    tty: true
+    networks:
+      - app_network
+  db:
+    image: postgres:15
+    hostname: db
+    env_file:
+      - ../.env
+    networks:
+      - app_network
+    environment:
+      - TZ=Asia/Tokyo
+      - POSTGRES_DB=$DB_NAME
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_PASSWORD=$DB_PASS
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+volumes:
+  postgres:
+
+networks:
+  app_network:
+    driver: bridge

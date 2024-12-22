@@ -1,5 +1,7 @@
-import { signIn } from '@/auth';
+'use client';
+
 import { Box, Button, Container, Typography } from '@mui/material';
+import { signIn } from 'next-auth/react';
 import React from 'react';
 
 const SignInForm: React.FC = () => {
@@ -16,18 +18,15 @@ const SignInForm: React.FC = () => {
         <Typography component="h1" variant="h5">
           Sign In
         </Typography>
-        <Box
-          component="form"
-          action={async () => {
-            'use server';
-            await signIn('google');
-          }}
-          sx={{ mt: 1 }}
+        <Button
+          type="button"
+          onClick={() => signIn()}
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2 }}
         >
-          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-            Sign In with Google
-          </Button>
-        </Box>
+          Sign In with Google
+        </Button>
       </Box>
     </Container>
   );
