@@ -1,5 +1,4 @@
 import Roomcreate from '@/components/top/Roomcreate';
-import Userlist from '@/components/top/Userlist';
 import { Box } from '@mui/material';
 
 export default function Top() {
@@ -15,7 +14,6 @@ export default function Top() {
       }}
     >
       <Roomcreate />
-      <Userlist />
     </Box>
   );
 }

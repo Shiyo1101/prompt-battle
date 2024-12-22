@@ -1,6 +1,7 @@
 'use client';
 
 import Header from '@/components/top/header';
+import TopMain from '@/components/top/main';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
+      <TopMain />
     </ThemeProvider>
   );
 }
