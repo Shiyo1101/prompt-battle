@@ -1,6 +1,6 @@
 'use client';
 
-import login from '@/actions/login';
+import { signIn } from 'next-auth/react';
 import { useCurrentUser } from '@/hooks/use-curent-user';
 import {
   Box,
@@ -36,11 +36,9 @@ const BattleRoomCreate = () => {
     );
   } else {
     Btn = (
-      <Box component="form" action={() => login('google')} sx={{ mt: 1 }}>
-        <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-          Sign In with Google
-        </Button>
-      </Box>
+      <Button onClick={() => signIn()} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+        Sign In with Google
+      </Button>
     );
   }
   return (
