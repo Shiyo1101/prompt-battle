@@ -1,3 +1,5 @@
+'use server';
+
 import { signIn } from '@/auth';
 
 export type Provider = 'google' | 'github';
