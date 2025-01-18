@@ -38,7 +38,7 @@ app.get('/', (_req, res) => {
 app.post('/generate/text', async (req, res) => {
   const { prompt, theme } = req.body;
   const text = theme
-    ? `下記「${theme}」というテーマについてのプロンプトです。回答お願いします。${prompt}`
+    ? `下記は「${theme}」というテーマについてのプロンプトです。回答お願いします。\n\n${prompt}`
     : prompt;
 
   try {
