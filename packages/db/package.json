@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "init": "prisma generate && prisma db push",
-    "prisma:studio": "prisma studio",
-    "prisma:dev:gen": "NODE_ENV=development && prisma generate",
-    "prisma:dev:migrate": "NODE_ENV=development && prisma migrate dev",
-    "prisma:dev:push": "NODE_ENV=development && prisma db push",
-    "prisma:prod:gen": "NODE_ENV=production && prisma generate",
-    "prisma:prod:migrate": "NODE_ENV=production && prisma migrate",
-    "prisma:prod:push": "NODE_ENV=production && prisma db push"
+    "studio": "prisma studio",
+    "dev:gen": "NODE_ENV=development && prisma generate",
+    "dev:migrate": "NODE_ENV=development && prisma migrate dev",
+    "dev:push": "NODE_ENV=development && prisma db push",
+    "prod:gen": "NODE_ENV=production && prisma generate",
+    "prod:migrate": "NODE_ENV=production && prisma migrate",
+    "prod:push": "NODE_ENV=production && prisma db push"
   },
   "author": "Yoshiki Uchida",
   "license": "ISC",
