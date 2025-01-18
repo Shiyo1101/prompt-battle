@@ -1,5 +1,6 @@
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import type { Metadata } from 'next';
+import { SessionProvider } from 'next-auth/react';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
-        <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+        <AppRouterCacheProvider>
+          <SessionProvider>{children}</SessionProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

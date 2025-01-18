@@ -7,7 +7,8 @@ import { Server } from 'socket.io';
 import openaiClient from './lib/openai';
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 4000;
+const URL = PORT ? `http://localhost:${PORT}` : 'http://localhost:4000';
 
 const corsOptions = {
   origin: process.env.APP_URL || 'http://localhost:3000',
@@ -61,5 +62,5 @@ io.on('connection', () => {
 });
 
 server.listen(PORT, () => {
-  console.log(`Backend listening on port ${PORT}`);
+  console.log(`Backend listening on ${URL}`);
 });

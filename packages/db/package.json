@@ -1,12 +1,12 @@
 {
-  "name": "db",
+  "name": "@package/db",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "init": "prisma generate && prisma db push",
     "prisma:studio": "prisma studio",
     "prisma:dev:gen": "NODE_ENV=development && prisma generate",
-    "prisma:dev:migrate": "NODE_ENV=development && prisma migrate",
+    "prisma:dev:migrate": "NODE_ENV=development && prisma migrate dev",
     "prisma:dev:push": "NODE_ENV=development && prisma db push",
     "prisma:prod:gen": "NODE_ENV=production && prisma generate",
     "prisma:prod:migrate": "NODE_ENV=production && prisma migrate",
@@ -14,6 +14,9 @@
   },
   "author": "Yoshiki Uchida",
   "license": "ISC",
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
   "dependencies": {
     "@prisma/client": "^6.0.1",
     "dotenv": "^16.4.7"

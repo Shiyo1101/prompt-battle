@@ -1,7 +1,7 @@
 'use client';
 
-import { Box, Button, Container, Typography } from '@mui/material';
-import { signIn } from 'next-auth/react';
+import SignInButton from '@/components/auth/signin-button';
+import { Box, Container, Typography } from '@mui/material';
 import React from 'react';
 
 const SignInForm: React.FC = () => {
@@ -18,15 +18,7 @@ const SignInForm: React.FC = () => {
         <Typography component="h1" variant="h5">
           Sign In
         </Typography>
-        <Button
-          type="button"
-          onClick={() => signIn()}
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Sign In with Google
-        </Button>
+        <SignInButton />
       </Box>
     </Container>
   );
